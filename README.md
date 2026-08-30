@@ -10,3 +10,5 @@ npm run dev
 ```
 
 El proyecto usa Vinext/Vite y exportación estática para Cloudflare Pages.
+
+Publicado en Cloudflare Pages: https://aurea-estudio-mx.pages.dev
