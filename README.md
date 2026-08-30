@@ -16,3 +16,5 @@ Publicado en Cloudflare Pages: https://aurea-estudio-mx.pages.dev
 ## Estado
 
 Proyecto conceptual de portafolio; todos los datos, proyectos y testimonios son ficticios.
+
+Despliegue automático conectado a `main`.
