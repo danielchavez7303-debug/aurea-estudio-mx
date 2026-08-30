@@ -9,7 +9,8 @@ import { fileURLToPath } from 'node:url';
 // Keep local previews compatible while allowing Cloudflare Pages to build from
 // a clean checkout where the private file is not present.
 const hostingConfigPath = fileURLToPath(new URL('./.openai/hosting.json', import.meta.url));
-const hostingConfig = existsSync(hostingConfigPath)
+const hasSitesConfig = existsSync(hostingConfigPath);
+const hostingConfig = hasSitesConfig
   ? (JSON.parse(readFileSync(hostingConfigPath, 'utf8')) as { d1?: string; r2?: string })
   : {};
 
@@ -60,7 +61,7 @@ export default defineConfig(async () => {
       : undefined,
     plugins: [
       vinext(),
-      sites(),
+      ...(hasSitesConfig ? [sites()] : []),
       cloudflare({
         viteEnvironment: { name: 'rsc', childEnvironments: ['ssr'] },
         config: localBindingConfig,
